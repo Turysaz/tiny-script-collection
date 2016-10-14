@@ -1,5 +1,5 @@
 " turysaz' .vimrc file
-" 2016 - 04 - 09
+" 2016 - 10 - 13
 
 runtime! debian.vim
 
@@ -15,6 +15,7 @@ endif
 
 "======= BASIC SETTINGS ===================
 set background=dark		" dark background
+colorscheme darkblue
 
 set showmode			" show current mode (insert, ...)
 set showcmd				" show (partial) commands in status line
@@ -25,10 +26,9 @@ set wrap				" wrapping too long lines
 set linebreak			" don't wrap in the middle of a word
 
 set autoindent			" autoindentation
-
-set shiftwidth=4		" ?
 set tabstop=4			" tabwidth
-set expandtab			" replace each tab by spaces
+set shiftwidth=4		" ?
+set expandtab			" make tab become spaces
 
 " statusline
 " ----------
@@ -83,7 +83,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_detect_modifier = 1
 let g:airline_detect_paste = 1
 let g:airline_detect_crypt = 1
-let g:airline_detect_spell = 0
+let g:airline_detect_spell = 1
 let g:airline_detect_iminsert = 0
 let g:airline_inactive_collapse = 1
 let g:airline_theme = 'badwolf'
@@ -96,5 +96,5 @@ let g:airline_section_b = '%{GitBranchInfoString()}'
 "let g:airline_section_x = '%y'
 "let g:airline_section_y = '%y'
 "let g:airline_section_z = '%y'
-"let g:airline_section_error = '%y'
+"let g:airline_section_error = 'E' "Error field deactivated
 
