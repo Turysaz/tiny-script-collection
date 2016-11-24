@@ -1,0 +1,16 @@
+[user]
+	email = turysaz@users.noreply.github.com
+[user]
+	name = Turysaz
+
+[alias]
+graph1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all --date-order
+graph2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all --date-order
+
+forward = checkout HEAD@{1}
+backward = checkout HEAD~1
+totalclean = clean -f -x -d
+amendcommit = !git commit --amend --date=\"$(date -R)\"
+[merge]
+	ff = no
+	commit = no
