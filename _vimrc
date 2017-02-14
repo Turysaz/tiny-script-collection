@@ -1,5 +1,5 @@
 " turysaz' .vimrc file
-" 2016 - 04 - 09
+" 2017 - 02 - 14
 
 runtime! debian.vim
 
@@ -76,17 +76,32 @@ if !exists('g:airline_symbols')
 endif
 
 " unicode symbols
-let g:airline_left_sep = '>'
-let g:airline_right_sep = '<'
-let g:airline_symbols.linenr = 'L'
-let g:airline_symbols.branch = '@'
-let g:airline_symbols.paste = 'P'
-let g:airline_symbols.whitespace = 'W'
+let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" backup symbols
+"let g:airline_left_sep = '>'
+"let g:airline_right_sep = '<'
+"let g:airline_symbols.linenr = 'L'
+"let g:airline_symbols.branch = '@'
+"let g:airline_symbols.paste = 'P'
+"let g:airline_symbols.whitespace = 'W'
 
 " airline configuration
 let g:airline_detect_modifier = 1
 let g:airline_detect_paste = 1
 let g:airline_detect_crypt = 1
+"let g:airline_detect_spell = 1
 let g:airline_detect_spell = 0
 let g:airline_detect_iminsert = 0
 let g:airline_inactive_collapse = 1
@@ -100,5 +115,5 @@ let g:airline_section_b = '%{GitBranchInfoString()}'
 "let g:airline_section_x = '%y'
 "let g:airline_section_y = '%y'
 "let g:airline_section_z = '%y'
-"let g:airline_section_error = '%y'
+"let g:airline_section_error = 'E' "Error field deactivated
 
