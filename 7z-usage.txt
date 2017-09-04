@@ -1,0 +1,14 @@
+
+An example of how to pack and encrypt with 7z
+=============================================
+
+
+7z a -t7z archivename.7z -xr!*exclude* -pusethispassword -mhe -v100m -mx9
+
+a       -- ADD to archive with the given name
+-xr!    -- exclude all this (with wildcards)
+-p      -- use the following password (no space in between)
+-mhe    -- encrypt filenames, too
+-v      -- split into parts of the size ...
+-mx9    -- maximum compression (1-9)
+
