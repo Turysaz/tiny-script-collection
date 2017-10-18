@@ -23,6 +23,11 @@ echo "======================="
 git clone https://github.com/taq/vim-git-branch-info.git
 
 echo ""
+echo "cloning NERDtree"
+echo "================"
+git clone https://github.com/scrooloose/nerdtree.git
+
+echo ""
 echo "start installation"
 echo ""
 
@@ -32,8 +37,12 @@ rsync vim-airline/ ~/.vim/
 echo "installing airline themes"
 rsync vim-airline-themes/ ~/.vim/
 
-echo "installing  git branch info"
+echo "installing git branch info"
 rsync vim-airline/ ~/.vim/
+
+echo "installing NERDtree"
+rsync nerdtree/ ~/.vim/
+
 
 echo "install vimrc"
 cp ../_vimrc-default ~/.vimrc
@@ -46,6 +55,5 @@ echo "removing temp dir"
 cd ..
 rm -rf $td
 
-echo "NERDtree sill missing :("
 echo "done."
 
