@@ -32,13 +32,13 @@ echo "start installation"
 echo ""
 
 echo "installing airline"
-rsync vim-airline/ ~/.vim/
+rsync -r vim-airline/ ~/.vim/
 
 echo "installing airline themes"
-rsync vim-airline-themes/ ~/.vim/
+rsync -r vim-airline-themes/ ~/.vim/
 
 echo "installing git branch info"
-rsync vim-airline/ ~/.vim/
+rsync -r vim-airline/ ~/.vim/
 
 echo "installing NERDtree"
 rsync nerdtree/ ~/.vim/
