@@ -1,0 +1,26 @@
+
+alias lh="ls -l -h"
+
+alias toxic="bash ~/bin/toxic/run_toxic_custom.sh -f /home/turysaz/secdrv/tox/turysaz.tox"
+
+export ALARM="/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
+export BEEP="/usr/share/sounds/freedesktop/stereo/complete.oga"
+
+alias beep="paplay $BEEP"
+alias alarm="paplay $ALARM"
+
+function log()
+{
+    eTitle=log-$(date '+%Y-%m-%d')
+    ePath=~/logbook/
+    entry=$ePath$eTitle.md
+
+    if [ ! -e $entry ]
+    then
+        echo new logbook entry
+        echo "$eTitle" > $entry
+        echo "==============" >> $entry
+    fi
+
+    vim $entry
+}
