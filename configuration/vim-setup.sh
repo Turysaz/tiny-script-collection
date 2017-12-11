@@ -43,7 +43,7 @@ echo "installing airline themes"
 rsync -a vim-airline-themes/ ~/.vim/
 
 echo "installing git branch info"
-rsync -a vim-airline/ ~/.vim/
+rsync -a vim-git-branch-info/ ~/.vim/
 
 echo "installing NERDtree"
 rsync -a nerdtree/ ~/.vim/
@@ -51,8 +51,9 @@ rsync -a nerdtree/ ~/.vim/
 echo "installing Rust plugin"
 rsync -a rust.vim/ ~/.vim/
 
+echo ""
 
-echo "install vimrc"
+echo "installing vimrc"
 cp ../_vimrc-default ~/.vimrc
 
 echo
