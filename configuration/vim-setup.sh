@@ -28,20 +28,28 @@ echo "================"
 git clone https://github.com/scrooloose/nerdtree.git
 
 echo ""
+echo "cloning official Rust plugin"
+echo "============================"
+git clone https://github.com/rust-lang/rust.vim.git
+
+echo ""
 echo "start installation"
 echo ""
 
 echo "installing airline"
-rsync -r vim-airline/ ~/.vim/
+rsync -a vim-airline/ ~/.vim/
 
 echo "installing airline themes"
-rsync -r vim-airline-themes/ ~/.vim/
+rsync -a vim-airline-themes/ ~/.vim/
 
 echo "installing git branch info"
-rsync -r vim-airline/ ~/.vim/
+rsync -a vim-airline/ ~/.vim/
 
 echo "installing NERDtree"
-rsync nerdtree/ ~/.vim/
+rsync -a nerdtree/ ~/.vim/
+
+echo "installing Rust plugin"
+rsync -a rust.vim/ ~/.vim/
 
 
 echo "install vimrc"
