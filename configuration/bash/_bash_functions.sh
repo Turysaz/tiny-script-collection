@@ -23,7 +23,7 @@ function log
 }
 
 
-# search logbook
+# search logbook for $1
 function log-search
 {
     ePath=~/logbook/
