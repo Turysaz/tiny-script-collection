@@ -29,10 +29,11 @@ set ruler               " show ruler
 set wrap                " wrapping too long lines
 set linebreak           " don't wrap in the middle of a word
 
-set autoindent          " autoindentation
+set autoindent          " automatically indent like previous line
+set smartindent         " increment indentation if open brackets etc.
 set tabstop=4           " tabwidth
-set shiftwidth=4        " indentationwidth
-set expandtab           " write spaces instead of tabs
+set shiftwidth=4        " ?
+set expandtab           " replace each tab by spaces
 
 set encoding=utf-8
 set fileencoding=utf-8
