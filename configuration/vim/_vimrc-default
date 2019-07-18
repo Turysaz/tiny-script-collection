@@ -1,4 +1,5 @@
 " turysaz' .vimrc file
+" default vimrc file. use backup file if terminal does not support all characters..
 " 2016 - 04 - 09
 
 runtime! debian.vim
@@ -18,6 +19,7 @@ cnoreabbrev W w
 
 "======= BASIC SETTINGS ===================
 set background=dark     " dark background
+colorscheme darkblue
 
 set showmode            " show current mode (insert, ...)
 set showcmd             " show (partial) commands in status line
@@ -35,6 +37,11 @@ set expandtab           " replace each tab by spaces
 
 set encoding=utf-8
 set fileencoding=utf-8
+
+autocmd FileType make set noexpandtab  " turn tab symbols on again for Makefiles
+autocmd BufEnter * set expandtab
+autocmd BufEnter Makefile set noexpandtab
+
 
 " statusline
 " ----------

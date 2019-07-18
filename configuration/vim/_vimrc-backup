@@ -38,6 +38,11 @@ set expandtab           " replace each tab by spaces
 set encoding=utf-8
 set fileencoding=utf-8
 
+autocmd FileType make set noexpandtab  " turn tab symbols on again for Makefiles
+autocmd BufEnter * set expandtab
+autocmd BufEnter Makefile set noexpandtab
+
+
 " statusline
 " ----------
 set statusline=%t\      "tail of the filename
