@@ -17,11 +17,11 @@ read -n1 -r -p " Press any key then.\n"
 
 echo 'Start downloading YCM.'
 
-git clone https://github.com/Valloric/YouCompleteMe.git
+git clone https://github.com/ycm-core/YouCompleteMe.git
 cd YouCompleteMe
 git submodule update --init --recursive
 
-python setup.py \
+python install.py \
     --clang-completer \
     --system-libclang # required on arch for some reason...
     # --rust-completer # requires rust and cargo
@@ -30,9 +30,10 @@ python setup.py \
 
 for dir in \
     autoload \
-    ci \
     doc \
-    plugin
+    plugin \
+    python \
+    third_party
 do
     rsync -a $dir/ ~/.vim/$dir/
 done
