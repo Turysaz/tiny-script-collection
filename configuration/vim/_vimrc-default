@@ -29,6 +29,8 @@ set ruler               " show ruler
 set wrap                " wrapping too long lines
 set linebreak           " don't wrap in the middle of a word
 
+set scrolloff=9999      " 'typewriter mode'
+
 set autoindent          " automatically indent like previous line
 set smartindent         " increment indentation if open brackets etc.
 set tabstop=4           " tabwidth
