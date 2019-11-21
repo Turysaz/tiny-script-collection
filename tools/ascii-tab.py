@@ -1,6 +1,3 @@
-cur = 0;
-lines = []
-
 nonprint = {
     0: "NUL",
     1: "STH",
@@ -42,20 +39,47 @@ nonprint = {
     31: "USP",
 
     127: "DEL",
+
+    # ANSI
+    129: "n.a",
+    141: "n.a",
+    143: "n.a",
+    144: "n.a",
+    155: " > ",
+    156: " ae",
+    157: "n.a",
 }
 
-while cur < 128:
-    a = nonprint[cur] if cur in nonprint else " " + str(chr(cur)) + " "
-    l = "{} {}  {}  | ".format(
-        str(cur).zfill(3),
-        "".join(" %02x"%cur),
-        a)
-    cur += 1
-    lines.append(l)
+class TabTypes():
+    ASCII = "ASCII"
+    ANSI = "ANSI"
 
-print("| " + "DEC HEX  SYM  | " * 4)
-print("+-" + "--------------+-" * 4)
-for i in range(32):
-    print("| " + lines[i] + lines[i+32] + lines[i+64] + lines[i+96])
+def __tab(type):
+    lower = 0 if type == TabTypes.ASCII else 128
+    upper = lower + 127
+
+    cur = lower
+    lines = []
+
+    while cur <= upper:
+        a = nonprint[cur] if cur in nonprint else " " + str(chr(cur)) + " "
+        l = "{} {}  {}  | ".format(
+            str(cur).zfill(3),
+            "".join(" %02x"%cur),
+            a)
+        cur += 1
+        lines.append(l)
+
+    print("| " + "DEC HEX  SYM  | " * 4)
+    print("+-" + "--------------+-" * 4)
+    for i in range(32):
+        print("| " + lines[i] + lines[i+32] + lines[i+64] + lines[i+96])
 
 
+def ascii_tab():
+    __tab(TabTypes.ASCII)
+
+def ansi_tab():
+    __tab(TabTypes.ANSI)
+
+ansi_tab()
