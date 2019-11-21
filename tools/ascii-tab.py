@@ -1,3 +1,8 @@
+import sys
+
+# allow piping unicode characters to file
+sys.stdout.reconfigure(encoding="utf-8")
+
 nonprint = {
     0: "NUL",
     1: "STH",
@@ -82,4 +87,6 @@ def ascii_tab():
 def ansi_tab():
     __tab(TabTypes.ANSI)
 
+ascii_tab()
+print("")
 ansi_tab()
