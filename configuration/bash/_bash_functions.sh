@@ -2,23 +2,35 @@
 # create logbook entry
 function log
 {
-    eTitle=log-$(date '+%Y-%m-%d')
-    ePath=~/logbook/
-    entry=$ePath$eTitle.md
+    logbookPath=~/logbook
+
+    if [ ! -e $logbookPath/token.txt ]
+    then
+        echo "No token file found."
+        return
+    fi
+
+    machineToken=$(cat $logbookPath/token.txt)
+
+    entryDate=$(date '+%Y-%m-%d')
+    entryId=$(echo $machineToken$entryDate | md5sum | head -c 6)
+    entryTitle=log-$entryDate-$entryId
+
+    entry=$logbookPath/$entryTitle.md
 
     if [ ! -e $entry ]
     then
         echo new logbook entry
-        echo "$eTitle" > $entry
-        echo "==============" >> $entry
+        echo "$entryTitle" > $entry
+        echo "=====================" >> $entry
     fi
 
     vim $entry
 
     old_dir=$(pwd)
-    cd $ePath
-    git add *
-    git commit -a -m"Automated logbook commit"
+    cd $logbookPath
+    git add $entry
+    git commit -m"Automated logbook commit of entry $entryId"
     cd $old_dir
 }
 
@@ -26,7 +38,7 @@ function log
 # search logbook for $1
 function log-search
 {
-    ePath=~/logbook/
-    grep -ir --exclude-dir=.git $1 $ePath
+    logbookPath=~/logbook/
+    grep -ir --exclude-dir=.git $1 $logbookPath
 }
 
