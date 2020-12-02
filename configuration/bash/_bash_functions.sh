@@ -30,3 +30,9 @@ function log-search
     grep -ir --exclude-dir=.git $1 $ePath
 }
 
+# get a two-byte random hex number
+function randhex
+{
+    echo $RANDOM | xargs printf "%04x"
+}
+
