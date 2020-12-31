@@ -55,6 +55,7 @@ function log-view
 
     if [[ $result == "" ]]; then
         echo "No matching entry found"
+        cd $old_dir
         return
     fi
 
@@ -83,5 +84,11 @@ function log-pull
     cd $logbookPath
     git pull origin master
     cd $old_dir
+}
+
+# get a two-byte random hex number
+function randhex
+{
+    echo $RANDOM | xargs printf "%04x"
 }
 
