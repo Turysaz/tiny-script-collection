@@ -1,4 +1,11 @@
 
+function __log-id
+{
+    entryDate=$1
+    machineToken=$2
+    echo $(echo $machineToken$entryDate | md5sum | head -c 6)
+}
+
 # create logbook entry
 function log
 {
@@ -13,9 +20,10 @@ function log
     fi
 
     machineToken=$(cat $logbookPath/token.txt)
-
     entryDate=$(date '+%Y-%m-%d')
-    entryId=$(echo $machineToken$entryDate | md5sum | head -c 6)
+
+    entryId=$(__log-id $entryDate $machineToken)
+
     entryTitle=log-$entryDate-$entryId
 
     entry=$logbookPath/$entryTitle.md
