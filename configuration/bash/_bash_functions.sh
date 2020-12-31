@@ -7,6 +7,8 @@ function log
     if [ ! -e $logbookPath/token.txt ]
     then
         echo "No token file found."
+        echo "Please add a 'token.txt' file containing a machine-specific"
+        echo "random text line to your logbook dir."
         return
     fi
 
@@ -40,5 +42,46 @@ function log-search
 {
     logbookPath=~/logbook/
     grep -ir --exclude-dir=.git $1 $logbookPath
+}
+
+function log-view
+{
+    logbookPath=~/logbook/
+    old_dir=$(pwd)
+    token=$1
+
+    cd $logbookPath
+    result=$(ls | grep $token | head -n 1)
+
+    if [[ $result == "" ]]; then
+        echo "No matching entry found"
+        return
+    fi
+
+    echo $result
+
+    less <$result
+
+    cd $old_dir
+}
+
+# push to master
+function log-push
+{
+    logbookPath=~/logbook/
+    old_dir=$(pwd)
+    cd $logbookPath
+    git push origin master
+    cd $old_dir
+}
+
+# pull from master
+function log-pull
+{
+    logbookPath=~/logbook/
+    old_dir=$(pwd)
+    cd $logbookPath
+    git pull origin master
+    cd $old_dir
 }
 
