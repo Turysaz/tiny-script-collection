@@ -4,16 +4,14 @@ alias lh="ls -l -h"
 alias la="ls -a"
 alias dd="dd status=progress"
 
-# binaries
-alias toxic="bash ~/bin/toxic/run_toxic_custom.sh -f /home/turysaz/secdrv/tox/turysaz.tox"
-alias godot=~/bin/GodotEngine/godot
+alias g="git"
+alias gg="git graph1"
 
 # custom commands
 export ALARM="/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
 export BEEP="/usr/share/sounds/freedesktop/stereo/complete.oga"
 alias beep="paplay $BEEP"
 alias alarm="paplay $ALARM"
-
 
 # load complex custom functions
 . ~/.bash_functions.sh
