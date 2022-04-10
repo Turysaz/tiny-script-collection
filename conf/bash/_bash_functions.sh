@@ -90,7 +90,7 @@ function log-pull
     logbookPath=~/logbook/
     old_dir=$(pwd)
     cd $logbookPath
-    git pull origin master
+    git pull --no-ff origin master
     cd $old_dir
 }
 
