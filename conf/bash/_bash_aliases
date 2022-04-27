@@ -7,6 +7,9 @@ alias dd="dd status=progress"
 alias g="git"
 alias gg="git graph1"
 
+alias cl="conflicts-list"
+alias ce="conflicts-edit"
+
 # custom commands
 export ALARM="/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
 export BEEP="/usr/share/sounds/freedesktop/stereo/complete.oga"
