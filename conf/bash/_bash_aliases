@@ -9,6 +9,7 @@ alias gg="git graph1"
 
 alias cl="conflicts-list"
 alias ce="conflicts-edit"
+alias ca="conflicts-add"
 
 # custom commands
 export ALARM="/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"

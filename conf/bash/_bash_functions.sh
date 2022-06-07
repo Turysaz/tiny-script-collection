@@ -152,3 +152,35 @@ conflicts-edit() {
     vim "${_CONFLICTS[$1]}"
 }
 
+# open file with conflicts
+conflicts-add() {
+    re='^[0-9]+$'
+
+    __conflicts-init
+
+    if [[ ${#_CONFLICTS[@]} -le 0 ]]
+    then
+        echo "No conflicting files known."
+        return
+    fi
+
+    if [[ -z $1 ]]
+    then
+        echo "Please specify the file's index."
+        echo "(Run 'conflicts-list' to get a list.)"
+        return
+    fi
+
+    if [[ ! $1 =~ $re || $1 -ge ${#_CONFLICTS[@]} || $1 -lt 0 ]]
+    then
+        echo "Invalid index: '$1'"
+        return
+    fi
+
+    read -p "Stage '${_CONFLICTS[$1]}'? [yN]" _answer
+
+    [[ $_answer != "y" ]] && return
+
+    git add "${_CONFLICTS[$1]}"
+}
+
