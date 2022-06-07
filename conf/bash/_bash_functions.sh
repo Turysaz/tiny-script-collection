@@ -130,7 +130,7 @@ conflicts-edit() {
 
     __conflicts-init
 
-    if [[ ${#_CONFLICTS} -le 0 ]]
+    if [[ ${#_CONFLICTS[@]} -le 0 ]]
     then
         echo "No conflicting files known."
         return
